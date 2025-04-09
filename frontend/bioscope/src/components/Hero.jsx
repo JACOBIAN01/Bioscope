@@ -1,5 +1,4 @@
 import React from "react";
-import Bg_Video from "../assets/HeroBG_Video.mp4";
 import poster from "../assets/Marvel_Poster.jpg";
 import BG from "../assets/BG.mp4";
 
