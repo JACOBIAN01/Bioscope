@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-100 px-6 py-4 flex justify-between items-center shadow-md">
       <div className="flex items-center space-x-2">
-        <img src={logo} alt="bioscope logo" className="h-10 w-10" />
+        <img src={logo} alt="bioscope logo" className="h-10 w-10 rounded-xl" />
         <span className="text-2xl font-extrabold text-yellow-400 tracking-wide">
           Bioscope
         </span>
@@ -17,7 +17,7 @@ function Navbar() {
           to="/signin"
           className="hover:text-yellow-400 transition text-sm font-medium"
         >
-          Sign In
+          Sign In 
         </Link>
         <Link
           to="/signup"
