@@ -1,24 +1,20 @@
 import React from "react";
 import Bg_Video from "../assets/HeroBG_Video.mp4";
 import poster from "../assets/Marvel_Poster.jpg";
+import BG from "../assets/BG.mp4";
 
 const Hero = () => {
   return (
-    <section className="relative h-[90vh] w-full overflow-hidden text-white">
-      {/* <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        src={Bg_Video}
+    <section className="relative h-screen w-full overflow-hidden text-white">
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        src={BG}
         autoPlay
         muted
         loop
         playsInline
         poster={poster}
-      />  */}
-
-      <img
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        src={poster}
-      />
+      /> 
 
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center">
