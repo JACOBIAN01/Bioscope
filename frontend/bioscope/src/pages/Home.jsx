@@ -1,13 +1,12 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
+const HomePage = () =>{
+    return (
+      <>
+        <Navbar/>
+      </>
+    );
+};
 
-const Home = ()=>{
-    return(
-        <>
-            <h1 className="text-center bg-cyan-500">Welcome to Bioscope</h1>
-        </>
-    )
-}
-
-
-export default Home;
+export default HomePage;
