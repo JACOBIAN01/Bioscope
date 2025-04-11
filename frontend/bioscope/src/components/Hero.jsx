@@ -1,11 +1,11 @@
 import React from "react";
-import poster from "../assets/Marvel_Poster.jpg";
+// import poster from "../assets/Marvel_Poster.jpg";
 import BG from "../assets/BG.mp4";
 
 const Hero = () => {
   return (
-    <section className="relative h-screen w-full overflow-hidden text-white">
-      <video
+    <section className="relative h-screen w-full overflow-hidden text-white bg-gradient-to-t from-gray-700 via-gray-800 to-black ">
+      {/* <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
         src={BG}
         autoPlay
@@ -14,6 +14,7 @@ const Hero = () => {
         playsInline
         poster={poster}
       /> 
+       */}
 
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center">
