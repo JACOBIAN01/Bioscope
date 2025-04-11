@@ -1,8 +1,20 @@
 import React from "react";
 import {Link} from "react-router-dom"
 import logo from "../assets/Logo2B.png"
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+
+    const navigate  = useNavigate();
+   const SignUP = () => {
+     navigate("/signup");
+   };
+
+      const Login = () => {
+        navigate("/login");
+      };
+
+
   return (
     <nav className="w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-100 px-6 py-4 flex justify-between items-center shadow-md">
       <div className="flex items-center space-x-2">

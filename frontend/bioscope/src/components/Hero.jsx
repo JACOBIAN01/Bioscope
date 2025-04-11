@@ -1,8 +1,14 @@
 import React from "react";
-// import poster from "../assets/Marvel_Poster.jpg";
-import BG from "../assets/BG.mp4";
+import { useNavigate } from "react-router-dom";
+
 
 const Hero = () => {
+
+  const navigate  = useNavigate();
+
+  const WatchMovie = ()=>{navigate('/watchmovie')}
+
+
   return (
     <section className="relative h-screen w-full overflow-hidden text-white bg-gradient-to-t from-gray-700 via-gray-800 to-black ">
       {/* <video
@@ -25,10 +31,16 @@ const Hero = () => {
           Dive into a world of stories. Stream the latest movies and series now.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <button className="bg-yellow-400 text-black px-6 py-3 rounded-2xl font-semibold hover:bg-yellow-300 transition">
+          <button
+            onClick={WatchMovie}
+            className="bg-yellow-400 text-black px-6 py-3 rounded-2xl font-semibold hover:bg-yellow-300 transition"
+          >
             Start Watching
           </button>
-          <button className="bg-transparent border border-white px-6 py-3 rounded-2xl hover:bg-white hover:text-black transition">
+          <button
+            onClick={WatchMovie}
+            className="bg-transparent border border-white px-6 py-3 rounded-2xl hover:bg-white hover:text-black transition"
+          >
             Browse Library
           </button>
         </div>
