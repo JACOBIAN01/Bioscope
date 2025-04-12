@@ -1,11 +1,16 @@
 import React from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
 
+const Login = async(email,password) => {
 
-
-const Login = () => {
-
-
+  try{
+    const UserCredential = await signInWithEmailAndPassword(auth,email,password);
+    console.log("USer Logged in: ",UserCredential.user);
+  }catch(error){
+console.log("LogIN Error: "+error);
+  }
 
 
   return (

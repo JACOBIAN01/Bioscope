@@ -23,7 +23,6 @@ const SignUp = () => {
       }
   }
 
-
   return (
     <section className="h-screen flex items-center justify-center bg-gradient-to-t from-gray-700 via-gray-800 to-black text-white">
       <div className="bg-gray-900 p-8 rounded-2xl shadow-lg w-full max-w-md">
