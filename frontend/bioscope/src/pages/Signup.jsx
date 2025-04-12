@@ -1,13 +1,15 @@
 import React from "react";
-import { useState} from "react";
+import { useState,useNavigate} from "react";
 import {createUserWithEmailAndPassword}  from "firebase/auth"
 import {auth} from "../../firebase";
-
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
 
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
+  const navigate = useNavigate();
+  
 
   const handleSignup = async(e)=>{
       e.preventDefault();
@@ -17,6 +19,7 @@ const SignUp = () => {
         setEmail("");
         setPassword("");
         alert("USer Created!");
+        navigate("/watchmovie")
       }catch(error){
         alert(error)
         console.log(error);
@@ -33,18 +36,21 @@ const SignUp = () => {
           <input
             type="text"
             placeholder="Username"
+            required
             className="px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:border-yellow-400"
           />
           <input
             type="email"
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
+            required
             className="px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:border-yellow-400"
           />
           <input
             type="password"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
+            required
             className="px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:border-yellow-400"
           />
           <button
@@ -56,9 +62,9 @@ const SignUp = () => {
         </form>
         <p className="mt-4 text-center text-sm">
           Already have an account?{" "}
-          <a href="/signin" className="text-yellow-400 hover:underline">
+          <Link to="/signin" className="text-yellow-400 hover:underline">
             Log in
-          </a>
+          </Link>
         </p>
       </div>
     </section>
