@@ -9,12 +9,8 @@ const MovieList = () => {
     {
       id: 1,
       title: "From",
-      poster: "https://pics.filmaffinity.com/from-265636059-large.jpg",
-    },
-    {
-      id: 2,
-      title: "From",
-      poster: "https://pics.filmaffinity.com/from-265636059-large.jpg",
+      poster:
+        "https://miro.medium.com/v2/resize:fit:1400/1*39M4XbHXCTfBenNNqLLyLA@2x.jpeg",
     },
   ];
 
@@ -33,7 +29,6 @@ const MovieList = () => {
         })}
       </div>
       
-
 
     </div>
   );
