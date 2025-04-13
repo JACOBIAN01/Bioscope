@@ -5,6 +5,7 @@ import MovieList from "./pages/MoviePage";
 import SignUp from "./pages/Signup";
 import Signin from "./pages/Signin";
 
+
 function App(){
   return (
     <Routes>
@@ -15,5 +16,6 @@ function App(){
     </Routes>
   );
 }
+
 
 export default App;
