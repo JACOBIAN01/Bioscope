@@ -1,17 +1,22 @@
 import React from "react";
-import { useState,useNavigate} from "react";
+import { useState} from "react";
 import {createUserWithEmailAndPassword}  from "firebase/auth"
 import {auth} from "../../firebase";
-import { Link } from "react-router-dom";
 import CustomAlert from "../components/CustomAlert";
+import { useNavigate } from "react-router-dom";
 
-const SignUp = () => {
+
+const Signup = () => {
   const [username, setUsername] = useState("");
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   const navigate = useNavigate();
   const [alertMessage,setAlertMessage] = useState("");
   const [isLoading,setIsLoading] = useState(false);
+
+  function GoToSignIN(){
+      navigate("/signin")
+  }
 
 
   const handleSignup = async(e)=>{
@@ -40,7 +45,7 @@ const SignUp = () => {
 
   return (
     <>
-    <CustomAlert message={alertMessage} onClose={setAlertMessage("")}/>
+    <CustomAlert message={alertMessage} onClose={()=>setAlertMessage("")}/>
       <section className="h-screen flex items-center justify-center bg-gradient-to-t from-gray-700 via-gray-800 to-black text-white">
         <div className="bg-gray-900 p-8 rounded-2xl shadow-lg w-full max-w-md">
           <h2 className="text-3xl font-bold mb-6 text-center">
@@ -79,9 +84,9 @@ const SignUp = () => {
           </form>
           <p className="mt-4 text-center text-sm">
             Already have an account?{" "}
-            <Link to="/signin" className="text-yellow-400 hover:underline">
-              Log in
-            </Link>
+            <button onClick={GoToSignIN} className="text-yellow-400 hover:text-yellow-500">
+              Sign in
+            </button>
           </p>
         </div>
       </section>
@@ -89,4 +94,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;

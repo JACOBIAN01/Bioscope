@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import CustomAlert from "../components/CustomAlert";
 
 
@@ -12,6 +11,10 @@ const Signin = () => {
   const navigate = useNavigate();
   const [alertMessage, setAlertMessage] = useState("");
 
+  function GoToSignUP(){
+    navigate("/signup")
+  }
+  
   
   const HandleSignin = async (e) => {
     e.preventDefault();
@@ -67,9 +70,9 @@ const Signin = () => {
           </form>
           <p className="mt-4 text-center text-sm">
             Don't have an account?{" "}
-            <Link to="/signup" className="text-yellow-400 hover:underline">
+            <button onClick={GoToSignUP} className="text-yellow-400 hover:text-yellow-500">
               Sign up
-            </Link>
+            </button>
           </p>
         </div>
       </section>

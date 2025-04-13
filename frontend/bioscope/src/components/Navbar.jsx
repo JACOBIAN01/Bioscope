@@ -1,7 +1,6 @@
 import React from "react";
-import {Link} from "react-router-dom"
 import logo from "../assets/LogoTitle.png"
-
+import { useNavigate } from "react-router-dom";
 
 
 export const BrandLogo = ()=>{
@@ -11,7 +10,7 @@ export const BrandLogo = ()=>{
         <img
           src={logo}
           alt="Bioscope logo"
-          className="h-13 w-13 rounded-xl shadow-lg border-2 border-yellow-400"
+          className="h-13 w-13 rounded-xl shadow-lg"
         />
       </div>
       <span className="text-xl font-extrabold text-yellow-400 tracking-wider hover:text-yellow-300 transition duration-300 ease-in-out">
@@ -23,26 +22,34 @@ export const BrandLogo = ()=>{
 
 export const SignCombo = ()=>{
 
+
+  const navigate = useNavigate();
+
+  function signUP(){
+    navigate("/signup")
+  }
+    function signIN(){
+    navigate("/signin")
+  }
+
 return (
   <div className="flex items-center space-x-4">
-    <Link
-      to="/signin"
+    <button
+      onClick={signIN} 
       className="hover:text-yellow-400 transition text-sm font-medium"
     >
       Sign In
-    </Link>
-    <Link
-      to="/signup"
+    </button>
+    <button
+       onClick={signUP} 
       className="bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-semibold hover:bg-yellow-300 transition"
+      
     >
       Sign Up
-    </Link>
+    </button>
   </div>
 );
 }
-
-
-
 
 function Navbar() {
 
