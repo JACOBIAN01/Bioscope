@@ -9,14 +9,13 @@ const WatchMovie = () => {
     <div className="min-h-screen bg-gray-900">
       <Navbar />
       <div className="flex justify-center items-center mt-8">
-        <div className="w-full max-w-4xl">
+        <div className="w-full max-w-4xl px-4">
           <video
             controls
             className="w-full rounded-2xl border-4 border-yellow-500"
           >
-            <source src={PlayBackId} type="application/x-mpegURL">
-                Your Browser does not support the video tag!
-            </source>
+            <source src={PlayBackId} type="application/x-mpegURL" />
+            Your browser does not support the video tag!
           </video>
         </div>
       </div>
