@@ -27,8 +27,8 @@ Bioscope is a full-stack OTT (Over-the-Top) video streaming platform developed u
 ### Prerequisites
 - Node.js & npm
 - MongoDB Atlas account
-- Stripe account
-- AWS S3 or other video hosting service
+- Razorpay account
+
 
 ### Installation
 
