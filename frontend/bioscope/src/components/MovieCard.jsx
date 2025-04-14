@@ -1,7 +1,15 @@
 import React from "react";
 // import { useState} from "react";
+import { useNavigate } from "react-router-dom";
 
-const MovieCard = ({title,poster})=>{
+
+const MovieCard = ({PlayBackId,title,poster})=>{
+
+const navigate = useNavigate();
+
+const handleWatchNow= ()=>{
+  navigate(`/watch/${PlayBackId}`);
+}
 
 
     return (
@@ -15,6 +23,7 @@ const MovieCard = ({title,poster})=>{
           <div className="p-4">
             <h2 className="text-3xl text-center font-semibold text-white">{title}</h2>
             <button
+              onClick={handleWatchNow}
               className="mt-4 px-4 py-2 bg-yellow-600 text-black font-bold
              rounded-lg hover:bg-yellow-700 transition"
             >
