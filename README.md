@@ -30,9 +30,3 @@ Bioscope is a full-stack OTT (Over-the-Top) video streaming platform developed u
 - Razorpay account
 
 
-### Installation
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/yourusername/bioscope.git
-cd bioscope
