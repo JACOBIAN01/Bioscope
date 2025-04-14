@@ -8,7 +8,8 @@ const MovieCard = ({PlayBackId,title,poster})=>{
 const navigate = useNavigate();
 
 const handleWatchNow= ()=>{
-  navigate(`/watch/${PlayBackId}`);
+  const encodedUrl = encodeURIComponent(PlayBackId);
+  navigate(`/watch/${encodedUrl}`);
 }
 
 

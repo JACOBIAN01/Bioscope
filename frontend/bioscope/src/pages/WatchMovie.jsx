@@ -4,13 +4,15 @@ import Navbar from "../components/Navbar";
 import Hls from "hls.js";
 
 const WatchMovie = () => {
+
   const { PlayBackId } = useParams();
+  const decodedUrl = decodeURIComponent(PlayBackId);
   const videoRef = useRef(null);
 
   useEffect(() => {
     if (Hls.isSupported()) {
       const hls = new Hls();
-      hls.loadSource(PlayBackId);
+      hls.loadSource(decodedUrl);
       hls.attachMedia(videoRef.current);
 
       hls.on(Hls.Events.ERROR, (event, data) => {
@@ -22,9 +24,9 @@ const WatchMovie = () => {
       };
     } else if (videoRef.current.canPlayType("application/vnd.apple.mpegurl")) {
       // For Safari
-      videoRef.current.src = PlayBackId;
+      videoRef.current.src = decodedUrl;
     }
-  }, [PlayBackId]);
+  }, [decodedUrl]);
 
   return (
     <div className="min-h-screen bg-gray-900">
