@@ -12,11 +12,12 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-//Routes
 app.use("/api/movies", movieRouter);
 
 const MongoDB_URI =
-  "mongodb+srv://subhadeep:Subha%40%282003%29@moviedb.0tmjtzd.mongodb.net/";
+  "mongodb+srv://subhadeep:Subha%40%282003%29@moviedb.0tmjtzd.mongodb.net/moviedb?retryWrites=true&w=majority&appName=MovieDB";
+
+//mongodb+srv://subhadeep:Subha%40%282003%29@moviedb.0tmjtzd.mongodb.net/
 
 mongoose
   .connect(MongoDB_URI)
@@ -29,3 +30,7 @@ mongoose
   .catch((error) => {
     console.error("❌ MongoDB connection error:", error);
   });
+
+  //http://localhost:5000/api/movies
+
+  
