@@ -6,6 +6,7 @@ import MovieCard from "../components/MovieCard";
 
 const MovieList = () => {
  
+
   const MovieData = [
     {
       id: 1,

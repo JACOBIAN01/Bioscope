@@ -1,8 +1,8 @@
-import express from "express";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-import cors from "cors";
-import router from "./Routes/MovieRoute.js";
+const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const cors = require("cors");
+const movieRouter = require("./Routes/MovieRoute.js");
 
 dotenv.config();
 
@@ -13,13 +13,13 @@ app.use(cors());
 app.use(express.json());
 
 //Routes
-app.use("/api/movies", router);
+app.use("/api/movies", movieRouter);
 
 const MongoDB_URI =
   "mongodb+srv://subhadeep:Subha%40%282003%29@moviedb.0tmjtzd.mongodb.net/";
 
 mongoose
-  .connect(MongoDB_URI, {})
+  .connect(MongoDB_URI)
   .then(() => {
     console.log("🚀Connected to MongoDB .");
     app.listen(PORT, () => {

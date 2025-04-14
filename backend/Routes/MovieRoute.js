@@ -1,5 +1,6 @@
-import express from "express";
-import Movie from "../models/Movies.js";
+const express = require("express");
+const Movie = require("../models/Movies.js");
+
 
 const router = express.Router();
 
@@ -8,9 +9,11 @@ router.get("/", async (req, res) => {
   try {
     const movies = await Movie.find();
     res.json(movies);
+    console.log(movies);
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch movies" });
   }
 });
 
-export default router;
+
+module.exports = router;
