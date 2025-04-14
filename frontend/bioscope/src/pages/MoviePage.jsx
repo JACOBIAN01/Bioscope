@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import Navbar from "../components/Navbar";
 import MovieCard from "../components/MovieCard";
 import axios from "axios";
@@ -6,15 +6,22 @@ import axios from "axios";
 
 const MovieList = () => {
  
+  const [movies,setMovies] = useState([]);
 
-  
-
+  useEffect(()=>{
+    axios.get("http://localhost:5000/api/movies").then((response)=>{
+      setMovies(response.data);
+    }).catch((err)=>{
+      console.log(err);
+    })
+    
+  })
 
   return (
     <div className="">
       <Navbar />
       <div className="flex gap-2">
-        {MovieData.map((movie) => {
+        {movies.map((movie) => {
           return (
             <MovieCard
               key={movie.id}
