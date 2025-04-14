@@ -15,6 +15,7 @@
     "bioscope": "file:",
     "firebase": "^11.6.0",
     "framer-motion": "^12.6.5",
+    "hls.js": "^1.6.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.5.0"

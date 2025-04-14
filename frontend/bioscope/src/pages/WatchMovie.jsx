@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Hls from "hls.js";
 
 const WatchMovie = () => {
   const { PlayBackId } = useParams();
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(PlayBackId);
+      hls.attachMedia(videoRef.current);
+
+      hls.on(Hls.Events.ERROR, (event, data) => {
+        console.error("HLS.js error:", data);
+      });
+
+      return () => {
+        hls.destroy();
+      };
+    } else if (videoRef.current.canPlayType("application/vnd.apple.mpegurl")) {
+      // For Safari
+      videoRef.current.src = PlayBackId;
+    }
+  }, [PlayBackId]);
 
   return (
     <div className="min-h-screen bg-gray-900">
@@ -11,12 +32,10 @@ const WatchMovie = () => {
       <div className="flex justify-center items-center mt-8">
         <div className="w-full max-w-4xl px-4">
           <video
+            ref={videoRef}
             controls
             className="w-full rounded-2xl border-4 border-yellow-500"
-          >
-            <source src={PlayBackId} type="application/x-mpegURL" />
-            Your browser does not support the video tag!
-          </video>
+          />
         </div>
       </div>
     </div>
