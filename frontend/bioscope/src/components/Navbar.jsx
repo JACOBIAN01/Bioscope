@@ -1,6 +1,9 @@
-import React from "react";
+import React , {useState} from "react";
 import logo from "../assets/LogoTitle.png"
 import { useNavigate } from "react-router-dom";
+import userImage from "../assets/User.webp";
+import {getAuth,onAuthStateChanged} from "firebase/auth";
+
 
 
 export const BrandLogo = ()=>{
@@ -21,7 +24,6 @@ export const BrandLogo = ()=>{
 }
 
 export const SignCombo = ()=>{
-
 
   const navigate = useNavigate();
 
@@ -51,12 +53,48 @@ return (
 );
 }
 
+
+
+export const UserNav = ()=>{
+
+  const navigate = useNavigate();
+   const HandleProfilePage = ()=>{
+    // navigate(`/profile/${props.uid}`)
+    navigate("/profile")
+   }
+
+
+
+  return (
+    <div className="flex space-x-2">
+      <img className="h-15 w-15 rounded-3xl" src={userImage} />
+      <button 
+      onClick={HandleProfilePage}
+      className="text-center bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold hover:bg-yellow-300 transition h-8 items-center m-auto ">
+        Profile
+      </button>
+    </div>
+  );
+}
+
 function Navbar() {
+
+  const auth = getAuth();
+  const [LoggedIn,setLoggedIN] = useState();
+  onAuthStateChanged(auth,(user)=>{
+    if(user){
+      setLoggedIN(true);
+    }else{
+      setLoggedIN(false)
+    }
+  })
+
 
   return (
     <nav className="w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-100 px-6 py-4 flex justify-between items-center shadow-md">
     <BrandLogo/>
-    <SignCombo/> 
+    {LoggedIn ? <UserNav/>:<SignCombo/>}
+
     </nav>
   );
 };
