@@ -1,18 +1,19 @@
 import React from "react";
 import { useState} from "react";
 import {createUserWithEmailAndPassword}  from "firebase/auth"
-import {auth} from "../../firebase";
+import {auth,db} from "../../firebase";
 import CustomAlert from "../components/CustomAlert";
 import { useNavigate } from "react-router-dom";
+import {doc,setDoc} from "firebase/firestore";
 
 
 const Signup = () => {
-  const [username, setUsername] = useState("");
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   const navigate = useNavigate();
   const [alertMessage,setAlertMessage] = useState("");
   const [isLoading,setIsLoading] = useState(false);
+  const [name,setName] = useState("");
 
   function GoToSignIN(){
       navigate("/signin")
@@ -23,10 +24,17 @@ const Signup = () => {
       e.preventDefault();
       setIsLoading(true);
       try{
-        await createUserWithEmailAndPassword(auth,email,password);
+        const userData = await createUserWithEmailAndPassword(auth,email,password);
+        const user = userData.user;
+        
+        await setDoc(doc(db,"users",user.uid),{
+          name:name,
+          email:user.email,
+        })
+
         setEmail("");
         setPassword("");
-        setAlertMessage("Sign up Successfully")
+        setAlertMessage(`Sign up Successfully!`)
          setTimeout(() => {
            setAlertMessage("");
            navigate("/watchmovie");
@@ -55,9 +63,9 @@ const Signup = () => {
           <form className="flex flex-col gap-4" onSubmit={handleSignup}>
             <input
               type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e)=>setUsername(e.target.value)}
+              placeholder="Name"
+              value={name}
+              onChange={(e)=>setName(e.target.value)}
               required
               className="px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:border-yellow-400"
             />
