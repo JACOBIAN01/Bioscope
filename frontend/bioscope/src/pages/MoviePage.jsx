@@ -15,10 +15,10 @@ const MovieList = () => {
       console.log(err);
     })
     
-  })
+  },[]);
 
   return (
-    <div className="">
+    <div className="bg-gradient-to-b from-gray-800 via-gray-700 to-gray-900 h-screen w-full">
       <Navbar />
       <div className="flex gap-2">
         {movies.map((movie) => {
@@ -28,6 +28,7 @@ const MovieList = () => {
               title={movie.title}
               poster={movie.poster}
               PlayBackId={movie.PlayBackId}
+              genre={movie.genre}
             />
           );
         })}

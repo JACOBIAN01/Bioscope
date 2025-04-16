@@ -1,9 +1,8 @@
 import React from "react";
-// import { useState} from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const MovieCard = ({PlayBackId,title,poster})=>{
+const MovieCard = ({PlayBackId,title,poster,genre})=>{
 
 const navigate = useNavigate();
 
@@ -15,21 +14,45 @@ const handleWatchNow= ()=>{
 
     return (
       <div>
-        <div className="max-w-sm mx-auto bg-gray-800 rounded-2xl shadow-md overflow-hidden border border-gray-200">
-          <img
-            className="w-full h-50 object-cover"
-            src={poster}
-            alt="Movie Poster"
-          />
-          <div className="p-4">
-            <h2 className="text-3xl text-center font-semibold text-white">{title}</h2>
-            <button
-              onClick={handleWatchNow}
-              className="mt-4 px-4 py-2 bg-yellow-600 text-black font-bold
-             rounded-lg hover:bg-yellow-700 transition"
-            >
-              Watch Now
-            </button>
+        <div className="max-w-sm mx-auto p-4">
+          <div className="relative bg-gray-900 rounded-3xl border border-gray-700 shadow-xl overflow-hidden transform transition duration-300 hover:scale-105 group">
+            {/* Poster Image */}
+            <img
+              src={poster}
+              alt="Movie Poster"
+              className="w-full h-64 object-cover transition duration-300 group-hover:opacity-90"
+            />
+
+            {/* Play icon overlay on hover */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+              <div className="bg-black/60 p-4 rounded-full">
+                <svg
+                  className="w-8 h-8 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Info Section */}
+            <div className="p-6 text-center">
+              <h2 className="text-white text-2xl font-bold mb-1 tracking-wide">
+                {title}
+              </h2>
+
+              {/* Genre */}
+              <div className="text-gray-400  mb-4 italic font-semibold px-3 py-1 rounded-full shadow-sm">
+                {genre.join("ㆍ")}
+              </div>
+              <button
+                onClick={handleWatchNow}
+                className="inline-block px-6 py-2 bg-yellow-500 text-black font-semibold rounded-full shadow-md hover:bg-yellow-600 transition duration-300"
+              >
+                🎬 Watch Now
+              </button>
+            </div>
           </div>
         </div>
       </div>
