@@ -4,35 +4,29 @@ Bioscope is a full-stack OTT (Over-the-Top) video streaming platform developed u
 
 ## 🌟 Features
 
-- 🔐 User Authentication (JWT)
+- 🔐 User Authentication (Firebase)
 - 🎞️ Video Upload & Playback
 - 🧑‍💼 Admin Dashboard for Content Management
-- 💳 Subscription & Payment Integration (Stripe)
+- 💳 Subscription & Payment Integration (Razorpay)
 - 🔍 Search, Filter, and Categories
 - 📜 Watch History (optional)
-- 📱 Responsive Design (Mobile & Desktop)
+- 📱 Responsive Design
 
 ## 📁 Tech Stack
 
-- **Frontend**: React.js, TailwindCSS / Material UI
+- **Frontend**: React.js, TailwindCSS
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB (Atlas)
-- **Video Hosting**: AWS S3 / Cloudinary / Mux
-- **Streaming**: HLS (with ffmpeg or Mux)
-- **Auth**: JWT, bcrypt
-- **Payments**: Stripe API
-
+- **Video Hosting**: Bunny.net
+- **Streaming**: HLS (with ffmpeg)
+- **Auth**: Firebase
+- **Payments**: Razorpay API
+  
 ## 🚀 Getting Started
 
 ### Prerequisites
 - Node.js & npm
 - MongoDB Atlas account
-- Stripe account
-- AWS S3 or other video hosting service
+- Razorpay account
 
-### Installation
 
-1. **Clone the repository**
-```bash
-git clone https://github.com/yourusername/bioscope.git
-cd bioscope
