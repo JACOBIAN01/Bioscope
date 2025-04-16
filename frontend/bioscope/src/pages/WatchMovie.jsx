@@ -9,7 +9,9 @@ const WatchMovie = () => {
   const decodedUrl = decodeURIComponent(PlayBackId);
   const videoRef = useRef(null);
 
+  
   useEffect(() => {
+    
     if (Hls.isSupported()) {
       const hls = new Hls();
       hls.loadSource(decodedUrl);
@@ -23,7 +25,7 @@ const WatchMovie = () => {
         hls.destroy();
       };
     } else if (videoRef.current.canPlayType("application/vnd.apple.mpegurl")) {
-      // For Safari
+
       videoRef.current.src = decodedUrl;
     }
   }, [decodedUrl]);
