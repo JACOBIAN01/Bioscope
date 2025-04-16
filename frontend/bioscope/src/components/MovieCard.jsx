@@ -46,11 +46,12 @@ const handleWatchNow= ()=>{
               <div className="text-gray-400  mb-4 italic font-semibold px-3 py-1 rounded-full shadow-sm">
                 {genre.join("ㆍ")}
               </div>
+
               <button
                 onClick={handleWatchNow}
                 className="inline-block px-6 py-2 bg-yellow-500 text-black font-semibold rounded-full shadow-md hover:bg-yellow-600 transition duration-300"
               >
-                🎬 Watch Now
+                Watch Now
               </button>
             </div>
           </div>

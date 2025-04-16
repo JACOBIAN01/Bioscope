@@ -24,7 +24,7 @@ const MovieList = () => {
         {movies.map((movie) => {
           return (
             <MovieCard
-              key={movie.id}
+              key={movie._id}
               title={movie.title}
               poster={movie.poster}
               PlayBackId={movie.PlayBackId}

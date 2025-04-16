@@ -19,15 +19,14 @@ router.get("/", async (req, res) => {
 //Post Movies to DB
 router.post("/", async (req, res) => {
   try {
-    const { title, poster, PlayBackId } = req.body;
-    if (!title || !poster || !PlayBackId||genre) {
+    const { title, poster, PlayBackId,genre } = req.body;
+    if (!title || !poster || !PlayBackId||genre){
       return res.status(400).json({ error: "All fields are required" });
     }
 
     const newMovie = new Movie({
       title,
       poster,
-      genre,
       PlayBackId,
     });
 
