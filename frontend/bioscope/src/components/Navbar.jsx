@@ -81,6 +81,7 @@ function Navbar() {
 
 
   const LoggedIn = GetLoginStatus();
+  
 
   return (
     <nav className="w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-100 px-6 py-4 flex justify-between items-center shadow-md">
