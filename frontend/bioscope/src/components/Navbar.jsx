@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import logo from "../assets/LogoTitle.png";
 import { useNavigate } from "react-router-dom";
 import userImage from "../assets/User.webp";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { auth, db } from "../../firebase";
-import { doc, getDoc } from "firebase/firestore";
-import CustomAlert from "./CustomAlert";
+import {GetLoginStatus} from "../pages/AuthState";
+import { GetUserData} from "../pages/AuthState";
+
+
 
 export const BrandLogo = () => {
   return (
@@ -55,74 +55,32 @@ export const SignCombo = () => {
 
 export const UserNav = () => {
   const navigate = useNavigate();
-  const [userData, setUserdata] = useState(null);
-  const [alertMessage, setAlertMessage] = useState("");
-  const HandleProfilePage = () => {
-    navigate("/profile");
-  };
+  const Data = GetUserData();
 
-  useEffect(() => {
-    const getUserData = async () => {
-      try {
-        const user = auth.currentUser;
-        if (user) {
-          const userRef = doc(db, "users", user.uid);
-          const userDoc = await getDoc(userRef);
-          if (userDoc.exists()) {
-            setUserdata(userDoc.data());
-          } else {
-            setTimeout(() => {
-              setAlertMessage("User Data Not Found!");
-            }, 2000);
-          }
-        } else {
-          setTimeout(() => {
-            setAlertMessage("No User Logged In");
-          },2000);
-        }
-      } catch (error) {
-        setTimeout(() => {
-          setAlertMessage("Authentication Error ",error);
-        }, 2000);
-      }
-    };
-    getUserData();
-  }, []);
+  const HandleProfilePage = ()=>{
+    navigate("/profile");
+  }
 
   return (
     <div className="flex space-x-2">
-      <CustomAlert
-        message={alertMessage}
-        onClose={() => {
-          setAlertMessage("");
-        }}
-      />
-      {userData && (
-        <>
-          <p>Welcome , {userData.name} </p>
-          <img className="h-15 w-15 rounded-3xl" src={userImage} />
-          <button
-            onClick={HandleProfilePage}
-            className="text-center bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold hover:bg-yellow-300 transition h-8 items-center m-auto "
-          >
-            Profile
-          </button>
-        </>
-      )}
+      <p className="item-center m-auto font-semibold mr-2">Welcome , {Data.name}</p>
+      <img className="h-15 w-15 rounded-3xl" src={userImage} />
+      <button
+        onClick={HandleProfilePage}
+        className="text-center bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold hover:bg-yellow-300 transition h-8 items-center m-auto "
+      >
+        Profile
+      </button>
     </div>
   );
 };
 
+
+
 function Navbar() {
-  const auth = getAuth();
-  const [LoggedIn, setLoggedIN] = useState(false);
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setLoggedIN(true);
-    } else {
-      setLoggedIN(false);
-    }
-  });
+
+
+  const LoggedIn = GetLoginStatus();
 
   return (
     <nav className="w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-100 px-6 py-4 flex justify-between items-center shadow-md">
