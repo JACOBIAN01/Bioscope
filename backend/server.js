@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;;
 
 app.use(
   cors({
-    origin: ["http://localhost:5000", "https://bioscope-delta.vercel.app"],
+    origin: ["http://localhost:3000", "https://bioscope-five.vercel.app"],
   })
 );
 
@@ -27,7 +27,7 @@ mongoose
   .then(() => {
     console.log("🚀Connected to MongoDB .");
     app.listen(PORT, () => {
-      console.log(`🚀 Server running on http://localhost:${PORT}`);
+      console.log(`🚀 Server running on http://0.0.0.0:${PORT}`);
     });
   })
   .catch((error) => {

@@ -5,17 +5,24 @@ import axios from "axios";
 
 
 const MovieList = () => {
- 
-  const [movies,setMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
 
-  useEffect(()=>{
-    axios.get("http://localhost:5000/api/movies").then((response)=>{
-      setMovies(response.data);
-    }).catch((err)=>{
-      console.log(err);
-    })
-    
-  },[]);
+  const backendURL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:5000/api/movies"
+      : "https://bioscope-backend.onrender.com/api/movies";
+
+      
+  useEffect(() => {
+    axios
+      .get(backendURL)
+      .then((response) => {
+        setMovies(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className="bg-gradient-to-b from-gray-800 via-gray-700 to-gray-900 h-screen w-full">
@@ -33,7 +40,6 @@ const MovieList = () => {
           );
         })}
       </div>
-
     </div>
   );
 };
