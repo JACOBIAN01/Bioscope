@@ -3,41 +3,58 @@ import LogOut from "./Logout";
 import Navbar from "../components/Navbar";
 import userImage from "../assets/User.webp";
 import { GetUserData } from "../pages/AuthState";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
-
   const Data = GetUserData();
   const Name = Data.name;
   const Email = Data.email;
+  const Navigate = useNavigate();
 
+  const HandleMoviePage = () => {
+    Navigate("/watchmovie");
+  };
 
   return (
     <>
       <div className="w-full min-h-screen bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white">
         <Navbar />
 
-        <div className="text-center pt-10">
-          <img
-            className="h-40 w-40 rounded-full m-auto shadow-lg border-4 border-cyan-400"
-            src={userImage}
-            alt="User"
-          />
+        <div className="flex flex-col items-center pt-16 px-4">
+          <div className="relative">
+            <img
+              className="h-44 w-44 rounded-full shadow-xl border-4 border-cyan-400"
+              src={userImage}
+              alt="User"
+            />
+            <div className="absolute -bottom-2 -right-2 bg-cyan-400 text-black px-2 py-1 rounded-full text-xs font-bold shadow-md">
+              PRO
+            </div>
+          </div>
 
-          <p className="bg-cyan-600/20 w-80 py-3 px-4 m-auto mt-6 mb-4 border border-cyan-400 rounded-full font-semibold text-xl text-cyan-200 shadow-sm">
-           {Name}
-          </p>
+          <div className="mt-8 w-full max-w-md">
+            <div className="bg-cyan-600/20 border border-cyan-400 text-cyan-200 rounded-2xl px-6 py-4 text-center shadow-md mb-4">
+              <p className="text-xl font-semibold">{Name}</p>
+            </div>
+            <div className="bg-cyan-600/20 border border-cyan-400 text-cyan-200 rounded-2xl px-6 py-4 text-center shadow-md">
+              <p className="text-xl font-semibold">{Email}</p>
+            </div>
+          </div>
 
-          <p className="bg-cyan-600/20 w-80 py-3 px-4 m-auto mt-4 mb-4 border border-cyan-400 rounded-full font-semibold text-xl text-cyan-200 shadow-sm">
-           {Email}
-          </p>
-        </div>
-
-        <div className="flex items-center justify-center mt-12">
-          <LogOut />
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
+            <LogOut />
+            <button
+              onClick={HandleMoviePage}
+              className="bg-gradient-to-r from-yellow-400 to-yellow-300 text-black px-6 py-2 rounded-full font-bold shadow-md hover:scale-105 transition-transform"
+            >
+              🎬 Watch Movie
+            </button>
+          </div>
         </div>
       </div>
     </>
   );
 };
+
 
 export default ProfilePage;
