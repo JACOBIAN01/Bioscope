@@ -12,7 +12,7 @@ const MovieList = () => {
       ? "http://localhost:5000/api/movies"
       : "https://bioscope-backend.onrender.com/api/movies";
 
-      
+
   useEffect(() => {
     axios
       .get(backendURL)
@@ -22,7 +22,8 @@ const MovieList = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [backendURL]);
+
 
   return (
     <div className="bg-gradient-to-b from-gray-800 via-gray-700 to-gray-900 h-screen w-full">

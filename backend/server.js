@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const movieRouter = require("./Routes/MovieRoute.js");
- 
+
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;;
+const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
@@ -21,7 +21,6 @@ app.use("/api/movies", movieRouter);
 
 const MongoDB_URI = process.env.MONGODB_URI;
 
-
 mongoose
   .connect(MongoDB_URI)
   .then(() => {
@@ -34,6 +33,4 @@ mongoose
     console.error("❌ MongoDB connection error:", error);
   });
 
-  //http://localhost:5000/api/movies
-
-  
+//http://localhost:5000/api/movies
