@@ -11,8 +11,12 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://bioscope-nu.vercel.app"],
-    credentials: true,
+    origin: [
+      "https://bioscope-nu.vercel.app", // Vercel domain
+      "http://localhost:5173", // Local development (optional)
+      "https://bioscope-backend.onrender.com", // Your backend API domain (optional)
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"], // Define allowed methods
   })
 );
 
