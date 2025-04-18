@@ -2,13 +2,18 @@ import React, { useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Hls from "hls.js";
+import { useNavigate } from "react-router-dom";
 
 const WatchMovie = () => {
 
   const { PlayBackId } = useParams();
   const decodedUrl = decodeURIComponent(PlayBackId);
   const videoRef = useRef(null);
+  const navigate = useNavigate();
 
+  const HandleHome = ()=>{
+    navigate("/watchmovie")
+  }
   
   useEffect(() => {
     
@@ -41,6 +46,14 @@ const WatchMovie = () => {
             className="w-full rounded-2xl border-4 border-yellow-500"
           />
         </div>
+      </div>
+
+      <div className="flex justify-center m-20">
+        <button 
+        onClick={HandleHome}
+        className="text-center bg-yellow-400 text-gray-900 px-6 py-1 rounded-full text-sm font-bold hover:bg-yellow-300 transition h-8 items-center m-auto ">
+          Home
+        </button>
       </div>
     </div>
   );
