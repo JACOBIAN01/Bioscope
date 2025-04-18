@@ -11,13 +11,12 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://bioscope-beta.vercel.app/"],
+    origin: ["http://localhost:5173", "https://bioscope-nu.vercel.app"],
     credentials: true,
   })
 );
 
 app.use(express.json());
-
 
 app.use("/api/movies", movieRouter);
 
