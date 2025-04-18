@@ -4,6 +4,9 @@ import Navbar from "../components/Navbar";
 import userImage from "../assets/User.webp";
 import { GetUserData } from "../pages/AuthState";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
+
+
 
 const ProfilePage = () => {
   const Data = GetUserData();
@@ -15,7 +18,6 @@ const ProfilePage = () => {
     Navigate("/watchmovie");
   };
 
-  
   return (
     <>
       <div className="w-full min-h-screen bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white">
@@ -53,6 +55,7 @@ const ProfilePage = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

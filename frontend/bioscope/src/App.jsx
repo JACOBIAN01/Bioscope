@@ -6,6 +6,7 @@ import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import WatchMovie from "./pages/WatchMovie";
 import ProfilePage from "./pages/Profile";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 
 function App(){
