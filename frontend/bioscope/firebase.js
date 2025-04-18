@@ -1,24 +1,21 @@
-// Import the functions you need from the SDKs you need
+// src/firebase.js
 import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
-import {getFirestore} from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCw0XDLNNHTlNKcbgkSVl6lNJk2OUEDNr0",
-  authDomain: "bioscope-c0aff.firebaseapp.com",
-  projectId: "bioscope-c0aff",
-  storageBucket: "bioscope-c0aff.firebasestorage.app",
-  messagingSenderId: "40682670879",
-  appId: "1:40682670879:web:b52ace07a9e50ef3f07e2a",
-  measurementId: "G-TYKRYQX1Z5",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app)
-export const db = getFirestore(app);
 
-export {auth}
-// const analytics = getAnalytics(app);
-// console.log(analytics);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+export { auth, db };

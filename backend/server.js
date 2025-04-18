@@ -9,15 +9,18 @@ dotenv.config();
 const app = express();
 const PORT = 5000;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:5000", "https://bioscope-delta.vercel.app"],
+  })
+);
+
 app.use(express.json());
 
 app.use("/api/movies", movieRouter);
 
-const MongoDB_URI =
-  "mongodb+srv://subhadeep:Subha%40%282003%29@moviedb.0tmjtzd.mongodb.net/moviedb?retryWrites=true&w=majority&appName=MovieDB";
+const MongoDB_URI = process.env.MONGODB_URI;
 
-//mongodb+srv://subhadeep:Subha%40%282003%29@moviedb.0tmjtzd.mongodb.net/
 
 mongoose
   .connect(MongoDB_URI)
