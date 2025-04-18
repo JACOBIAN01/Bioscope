@@ -21,7 +21,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="relative h-screen w-full overflow-hidden text-white bg-gradient-to-t from-gray-700 via-gray-800 to-black ">
+      <section className="relative h-screen w-full overflow-hidden text-white bg-gradient-to-t from-gray-900 via-gray-700 to-gray-900 ">
 
         {AlertMessage &&
         <CustomAlert message={AlertMessage} onClose={()=>setAlertMessage("")} />
