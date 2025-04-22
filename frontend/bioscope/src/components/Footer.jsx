@@ -13,7 +13,7 @@ const Footer = () => {
             href="https://github.com/JACOBIAN01" // Replace with your actual GitHub URL
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-gray-300 transition"
+            className="text-white hover:text-black transition"
           >
             <i className="fab fa-github text-2xl"></i>
           </a>
@@ -23,7 +23,7 @@ const Footer = () => {
             href="https://www.linkedin.com/in/subhadeep-ghorai/" // Replace with your actual LinkedIn URL
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-cyan-500 transition"
+            className="text-white hover:text-cyan-700  transition"
           >
             <i className="fab fa-linkedin text-2xl"></i>
           </a>

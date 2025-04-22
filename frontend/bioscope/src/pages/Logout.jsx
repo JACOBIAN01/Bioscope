@@ -29,7 +29,7 @@ const LogOutButton = () => {
       />
       <button
         onClick={SignOut}
-        className="text-center bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold hover:bg-yellow-300 transition h-8 items-center m-auto "
+        className="text-center bg-gradient-to-r from-yellow-600 via-yellow-300 to-yellow-600  text-black px-4 py-1 rounded-full text-sm font-bold hover:bg-yellow-300 transition h-8 items-center m-auto "
       >
         LogOut
       </button>

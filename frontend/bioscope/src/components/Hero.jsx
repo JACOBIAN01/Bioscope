@@ -22,10 +22,12 @@ const Hero = () => {
   return (
     <>
       <section className="relative h-screen w-full overflow-hidden text-white bg-gradient-to-t from-gray-900 via-gray-700 to-gray-900 ">
-
-        {AlertMessage &&
-        <CustomAlert message={AlertMessage} onClose={()=>setAlertMessage("")} />
-        }
+        {AlertMessage && (
+          <CustomAlert
+            message={AlertMessage}
+            onClose={() => setAlertMessage("")}
+          />
+        )}
 
         {/* Content */}
         <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center">
@@ -39,13 +41,13 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <button
               onClick={WatchMovie}
-              className="bg-yellow-400 text-black px-6 py-3 rounded-2xl font-semibold hover:bg-yellow-300 transition"
+              className="bg-gradient-to-r from-yellow-600 via-yellow-300 to-yellow-600 text-black px-6 py-3 rounded-2xl font-semibold hover:bg-yellow-300 transition"
             >
               Start Watching
             </button>
             <button
               onClick={WatchMovie}
-              className="bg-transparent border border-white px-6 py-3 rounded-2xl hover:bg-white hover:text-black transition"
+              className="bg-transparent font-semibold border-3 border-white px-6 py-3 rounded-2xl hover:bg-white hover:text-black transition"
             >
               Browse Library
             </button>

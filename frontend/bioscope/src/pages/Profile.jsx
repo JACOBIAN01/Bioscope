@@ -48,9 +48,9 @@ const ProfilePage = () => {
             <LogOut />
             <button
               onClick={HandleMoviePage}
-              className="bg-gradient-to-r from-yellow-400 to-yellow-300 text-black px-6 py-2 rounded-full font-bold shadow-md hover:scale-105 transition-transform"
+              className="bg-gradient-to-r from-yellow-600 via-yellow-300 to-yellow-600 text-black px-4 py-1 rounded-full font-bold shadow-md hover:text-gray-900"
             >
-              🎬 Watch Movie
+              Watch Movie
             </button>
           </div>
         </div>

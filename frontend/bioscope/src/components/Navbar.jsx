@@ -34,6 +34,7 @@ export const SignCombo = () => {
     navigate("/signin");
   }
 
+
   return (
     <div className="flex items-center space-x-4">
       <button
@@ -44,7 +45,7 @@ export const SignCombo = () => {
       </button>
       <button
         onClick={signUP}
-        className="bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-semibold hover:bg-yellow-300 transition"
+        className="bg-gradient-to-r from-yellow-600 via-yellow-300 to-yellow-600 text-gray-950 px-4 py-1 rounded-full text-sm font-semibold hover:bg-yellow-300 transition"
       >
         Sign Up
       </button>
